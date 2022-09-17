@@ -45,7 +45,7 @@ class CustomRecentItem extends StatelessWidget {
           onTap: () {},
           isThreeLine: true,
           trailing: Padding(
-            padding: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 15),
             child: Wrap(
               spacing: 10,
               crossAxisAlignment: WrapCrossAlignment.center,

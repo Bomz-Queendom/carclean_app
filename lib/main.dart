@@ -1,4 +1,7 @@
 import 'package:carclean_app/constant.dart';
+import 'package:carclean_app/screens/ProfileScreen.dart';
+import 'package:carclean_app/screens/changePassword.dart';
+import 'package:carclean_app/screens/editProfileScreen.dart';
 import 'package:carclean_app/screens/firstScreen.dart';
 import 'package:carclean_app/screens/home.dart';
 import 'package:carclean_app/screens/mainScreen.dart';
@@ -19,6 +22,10 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: '/first_screen', page: () => FirstScreen()),
         GetPage(name: '/main_screen', page: () => MainScreen()),
+        GetPage(name: '/profile_screen', page: () => ProfileScreen()),
+        GetPage(name: '/edit_profile_screen', page: () => EditProfileScreen()),
+        GetPage(
+            name: '/change_password_screen', page: () => ChangePasswordScreen()),
       ],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Prompt", primaryColor: primaryColor),

@@ -35,7 +35,7 @@ class Historylist extends StatelessWidget {
         price,
         style: TextStyle(fontSize: 18.58, fontWeight: FontWeight.w500),
       ),
-      onTap: () {},
+      //onTap: () {},
     );
   }
 }

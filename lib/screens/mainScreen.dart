@@ -1,5 +1,6 @@
 import 'package:carclean_app/components/CustomAppbar.dart';
 import 'package:carclean_app/components/CustomListItem.dart';
+import 'package:carclean_app/screens/ProfileScreen.dart';
 import 'package:carclean_app/screens/home.dart';
 import 'package:carclean_app/screens/recentScreen.dart';
 import 'package:carclean_app/screens/walletScreen.dart';
@@ -14,13 +15,13 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   Color gray125 = Color.fromARGB(255, 125, 125, 125);
-  final _tabs = [Home(), RecentScreen(),WalletScreen()];
+  final _tabs = [Home(), RecentScreen(), WalletScreen(), ProfileScreen()];
 
   int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    final _appBar = [CustomAppBar(context),null,null,null];
+    final _appBar = [CustomAppBar(context), null, null, null];
     return Scaffold(
       appBar: _appBar[_currentIndex],
       body: _tabs[_currentIndex],
