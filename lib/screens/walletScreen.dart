@@ -32,7 +32,10 @@ class _WalletScreenState extends State<WalletScreen> {
               style: TextStyle(fontSize: 16.73, fontWeight: FontWeight.bold),
             ),
           ),
-          CardPayment(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: CardPayment(),
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
             child: Text(

@@ -3,7 +3,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 
-class AddressTextController extends GetxController {
+class Controller extends GetxController {
   late Position _position;
   var address = "".obs;
   late StreamSubscription<Position> streamSubscription;
@@ -45,12 +45,11 @@ class AddressTextController extends GetxController {
         return Future.error("Location Permisstions are denied.");
       }
     }
-    streamSubscription = Geolocator.getPositionStream().listen(
-      (Position position) {
-        _position = position;
-        getAddress(position);
-      },
+    _position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.best,
+      timeLimit: Duration(seconds: 5),
     );
+    getAddress(_position);
   }
 
   Future<void> getAddress(Position position) async {

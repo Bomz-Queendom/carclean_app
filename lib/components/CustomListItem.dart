@@ -1,30 +1,27 @@
 import 'package:carclean_app/constant.dart';
+import 'package:carclean_app/models/carwashModel.dart';
+import 'package:carclean_app/screens/serviceScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CustomlistItem extends StatelessWidget {
-  const CustomlistItem({
-    Key? key,
-    required this.title,
-    required this.price,
-    required this.time,
-    required this.tel,
-    required this.km,
-    required this.imagePath,
-  }) : super(key: key);
+  const CustomlistItem({Key? key, required this.carwashData}) : super(key: key);
 
-  final String imagePath;
-  final String title;
-  final String price;
-  final String time;
-  final String tel;
-  final String km;
+  final CarwashModels carwashData;
 
   @override
   Widget build(BuildContext context) {
     Color gray125 = Color.fromARGB(255, 125, 125, 125);
     return GestureDetector(
-      onTap: () => Get.toNamed("servicesScreen"),
+      onTap: () {
+        Get.to(ServiceScreen(
+          title: carwashData.name,
+          service: carwashData.service,
+          time: carwashData.timeSlot,
+          lat: carwashData.lat,
+          long: carwashData.long,
+        ));
+      },
       child: Wrap(
         children: [
           Container(
@@ -47,7 +44,7 @@ class CustomlistItem extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: Image.asset(
-                      imagePath,
+                      carwashData.imagePath,
                       height: 103.52,
                       width: 103.52,
                     ),
@@ -58,14 +55,14 @@ class CustomlistItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          title,
+                          carwashData.name,
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 18.4,
                               color: textColor),
                         ),
                         Text(
-                          "${price}\n${time}\nTel ${tel}",
+                          "${carwashData.estimatedPrice}\n${carwashData.businesHours}\nTel ${carwashData.tel}",
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 11.5,

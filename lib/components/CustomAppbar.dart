@@ -1,4 +1,4 @@
-import 'package:carclean_app/controller/addressTextController.dart';
+import 'package:carclean_app/controller/Controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'searchBox.dart';
 
 PreferredSize CustomAppBar(BuildContext context) {
-  final AddressTextController c = Get.put(AddressTextController());
+  final Controller c = Get.put(Controller());
   double height = AppBar().preferredSize.height;
   return PreferredSize(
     preferredSize: Size(MediaQuery.of(context).size.width, 168),

@@ -24,7 +24,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             elevation: 1,
             backgroundColor: Colors.white,
             onPressed: () {
-              Get.toNamed("main_screen");
+              Get.back();
             },
             child: Icon(
               FontAwesomeIcons.angleLeft,
@@ -39,7 +39,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         centerTitle: true,
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
             child: Text(
               "Save",
               style: TextStyle(

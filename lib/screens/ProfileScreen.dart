@@ -1,5 +1,4 @@
-import 'package:carclean_app/components/settingList.dart';
-import 'package:carclean_app/components/signoutBtn.dart';
+import 'package:carclean_app/components/settingBody.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -12,6 +11,9 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final _body = [settingBody()];
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,36 +26,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         automaticallyImplyLeading: false,
         elevation: 0,
+        bottom: PreferredSize(
+            child: ProfileCard(),
+            preferredSize: Size(MediaQuery.of(context).size.width, 102)),
       ),
-      body: ListView(
-        children: [
-          ProfileCard(),
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                SettingList(
-                  title: "Change Password",
-                  screenName: "change_password_screen",
-                ),
-                SettingList(
-                  title: "Support",
-                  screenName: "support_screen",
-                ),
-                SizedBox(
-                  height: 8 - 1.4,
-                  width: MediaQuery.of(context).size.width,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 217, 217, 217),
-                    ),
-                  ),
-                ),
-                SignoutBtn()
-              ],
-            ),
-          )
-        ],
-      ),
+      body: _body[_currentIndex],
     );
   }
 }
